@@ -1,0 +1,18 @@
+<p>product works!</p>
+
+<div *ngFor="let product of products;index as i" style="font-size: 25px;">
+
+    <span class="text-bold" [ngClass]="{'notavaialble': product.inStock==false}">
+      {{i+1}} {{product.id}} {{product.name}} {{product.price | currency:'CAD'}}
+    </span>
+    <span *ngIf="product.price>100">Expensive</span>
+  </div>
+  
+  <br>
+  <h1>{{today |  date:'short'}}</h1>
+  <h1>{{today |  date:'full'}}</h1>
+  <h1 [ngStyle]="{'color:red': today.getFullYear()>2000}">
+    {{today |  date:'shortDate'}}
+  </h1>
+  
+  Year : {{today.getFullYear()}}
