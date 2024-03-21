@@ -8,6 +8,8 @@ import { Component } from '@angular/core';
 export class ProductComponent {
   title = 'AngularDemo';
   today = new Date();
+  imgPath = 'https://www.mapsofindia.com/maps/india/india-political-map.gif';
+  showImage: boolean = true;
 
   products = [
     { id: 1, name: 'Book', price: 50, inStock: true },
@@ -16,4 +18,15 @@ export class ProductComponent {
     { id: 4, name: 'Pencil', price: 20, inStock: true },
     { id: 5, name: 'Shoes', price: 1500, inStock: false },
   ]
+
+  selectedProductName = "";
+
+  toggleImage() {
+    this.showImage = !this.showImage;
+  }
+
+  displaySelected(){
+    alert(this.selectedProductName);
+  }
+
 }

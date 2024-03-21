@@ -1,18 +1,41 @@
 <p>product works!</p>
 
-<div *ngFor="let product of products;index as i" style="font-size: 25px;">
+<app-grocery-product></app-grocery-product>
+<h3>Image Binding</h3>
+<img style="width: 300px;" [src]="imgPath" *ngIf="showImage" />
+<hr>
 
-    <span class="text-bold" [ngClass]="{'notavaialble': product.inStock==false}">
-      {{i+1}} {{product.id}} {{product.name}} {{product.price | currency:'CAD'}}
-    </span>
-    <span *ngIf="product.price>100">Expensive</span>
-  </div>
-  
-  <br>
-  <h1>{{today |  date:'short'}}</h1>
-  <h1>{{today |  date:'full'}}</h1>
-  <h1 [ngStyle]="{'color:red': today.getFullYear()>2000}">
-    {{today |  date:'shortDate'}}
-  </h1>
-  
-  Year : {{today.getFullYear()}}
+
+<h3>Two way Binding</h3>
+<br><input type="text" [(ngModel)]="title">
+<h2>{{title}}</h2>
+<br>
+
+<h1>Event Handling</h1> {{showImage}}
+<button type="button" (click)="toggleImage()">Toggle Indian Map </button>
+<br>
+<select (change)="displaySelected()" [(ngModel)]="selectedProductName">
+  <option selected value="">Select one Product</option>
+  <option *ngFor="let prod of products" [value]="prod.name">{{prod.name}}</option>
+</select>
+
+<hr>
+
+<div *ngFor="let product of products;index as i" style="font-size: 25px;">
+  <span class="text-bold" [ngClass]="{'notavaialble': product.inStock==false}">
+    {{i+1}} {{product.id}} {{product.name}} {{product.price | currency:'CAD'}}
+  </span>
+  <span *ngIf="product.price>100">Expensive</span>
+</div>
+
+<br>
+<h1>{{today | date:'short'}}</h1>
+<h1>{{today | date:'full'}}</h1>
+<h1 [ngStyle]="{'color:red': today.getFullYear()>2000}">
+  {{today | date:'shortDate'}}
+</h1>
+
+
+
+
+Year : {{today.getFullYear()}}
