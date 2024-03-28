@@ -1,5 +1,13 @@
-<div style="background-color: cyan;">
-<p>grocery-product works!</p>
+<div style="background-color: rgb(157, 233, 233);width:800px;padding: 15px;">
+    <p>grocery-product works!</p>
 
-<h1>Grocery is a Child Component of Product</h1>
+    <h1>Grocery is a Child Component of Product</h1>
+
+    <div *ngFor="let prod of prods">
+        <input type="radio" [value]="prod.name" name="grocery" (change)="selectNationality($event)" />{{prod.name}}
+    </div>
+
+
+    Student Name : {{studentname}}
 </div>
+

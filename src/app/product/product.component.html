@@ -1,15 +1,13 @@
 <p>product works!</p>
 
-<app-grocery-product></app-grocery-product>
+Selected Product : {{selectedProduct}}
+<app-grocery-product [prods]="products" (grocerySelectedEvent)="selectedEvent($event)"></app-grocery-product>
+<input type="text" value="" (change)="childDataChange($event)" />
+
 <h3>Image Binding</h3>
 <img style="width: 300px;" [src]="imgPath" *ngIf="showImage" />
 <hr>
 
-
-<h3>Two way Binding</h3>
-<br><input type="text" [(ngModel)]="title">
-<h2>{{title}}</h2>
-<br>
 
 <h1>Event Handling</h1> {{showImage}}
 <button type="button" (click)="toggleImage()">Toggle Indian Map </button>
@@ -18,6 +16,12 @@
   <option selected value="">Select one Product</option>
   <option *ngFor="let prod of products" [value]="prod.name">{{prod.name}}</option>
 </select>
+<br>
+
+<h3>Two way Binding</h3>
+<br><input type="text" [(ngModel)]="title">
+<h2>{{title}}</h2>
+<br>
 
 <hr>
 
@@ -34,8 +38,4 @@
 <h1 [ngStyle]="{'color:red': today.getFullYear()>2000}">
   {{today | date:'shortDate'}}
 </h1>
-
-
-
-
 Year : {{today.getFullYear()}}
