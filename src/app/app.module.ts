@@ -4,20 +4,23 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './product/product.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GroceryProductComponent } from './product/grocery-product/grocery-product.component';
 import { AddstudentComponent } from './student/addstudent/addstudent.component';
+import { AdduserComponent } from './user/adduser/adduser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
     GroceryProductComponent,
-    AddstudentComponent
+    AddstudentComponent,
+    AdduserComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     AppRoutingModule
   ],
   providers: [],
