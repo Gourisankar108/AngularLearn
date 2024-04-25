@@ -1,0 +1,43 @@
+<div class="container">
+    <h1>Product List</h1>
+
+    <!-- <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="searchtext" placeholder="Search products">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" id="btnSearch" type="button" (click)="searchProduct()">Search</button>
+            <button class="btn btn-outline-secondary" id="btnReset" (click)="resetProductSearch()">Reset</button>
+        </div>
+    </div> -->
+
+    <div class="row mt-3">
+        <div class="col-sm-3 p-2" *ngFor="let prod of products; index as i">
+            <div class="card product-card">
+                <div class="profile-card">
+                    <img class="img-fluid" [src]="prod.thumbnail">
+                    <button class="btn btn-sm btn-info staticleft">{{ prod.brand }}</button>
+                    <button class="btn btn-sm btn-primary staticright">{{ prod.category }}</button>
+                    <div class="card-block">
+                        <h5 class="text-center text-elliple">{{ prod.title }}</h5>
+                        <small class="text-elliple p-1">{{ prod.description }}</small>
+                    </div>
+                </div>
+                <div class="card-footer bg-inverse">
+                    <div class="row text-center">
+                        <div class="col-sm-4">
+                            <h6>Rs {{ prod.price }}</h6>
+                            <small>Price</small>
+                        </div>
+                        <div class="col-sm-4">
+                            <h6>{{ prod.rating }}</h6>
+                            <small>Rating</small>
+                        </div>
+                        <div class="col-sm-4">
+                            <h6>{{ prod.discountPercentage }}%</h6>
+                            <small>Discount</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
